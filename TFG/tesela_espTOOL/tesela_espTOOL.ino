@@ -150,10 +150,6 @@ void loop() {
       for (int row = 0; row < 8; row++) {
         Serial.print('"');
         for (int col = 0; col < 8; col++) {
-          if ((col == 8 && !(row == 7))){
-            Serial.print('    "');
-            Serial.print(",\n");
-          }
           uint16_t temp_val = bitmapMatrix[row][col];
           switch (temp_val) {
             case 0x867D:
