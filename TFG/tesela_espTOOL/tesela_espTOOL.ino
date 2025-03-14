@@ -148,7 +148,7 @@ void loop() {
     Serial.print("library IEEE;\nuse IEEE.STD_LOGIC_1164.ALL;\nuse IEEE.NUMERIC_STD.ALL;\n\n\nentity ROMx is\n  port (\n    clk  : in  std_logic;   -- reloj\n    addr : in  std_logic_vector(8-1 downto 0);\n    dout : out std_logic_vector(16-1 downto 0));\nend ROMx;\n\n\n");
     Serial.print("architecture BEHAVIORAL of ROMx is\n  signal addr_int  : natural range 0 to 2**4-1;\n type memostruct is array (natural range<>) of std_logic_vector(8-1 downto 0);\n constant filaimg : memostruct := (\n");
       for (int row = 0; row < 8; row++) {
-        Serial.print('    "');
+        Serial.print('"');
         for (int col = 0; col < 8; col++) {
           if ((col == 8 && !(row == 7))){
             Serial.print('    "');
