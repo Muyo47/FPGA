@@ -88,19 +88,23 @@ void loop() {
     if (pressed && x > 270 && x < 320 && y > 0 && y < 20){
       if (colorSelection == 0xFDA0){
         colorSelection = 0x867D;    // Azul
+        delay(350);
       }
       else {
         colorSelection = 0xFDA0;    // Naranja
         Serial.println("Cambio a naranja");
+        delay(350);
       }
     }
     else if (pressed && x > 270 && x < 320 && y > 20 && y < 40){
       if (colorSelection == 0x07E0){
         colorSelection = 0x867D;    // Azul
+        delay(350);
       }
       else {
         colorSelection = 0x07E0;    // Verde
         Serial.println("Cambio a verde");
+        delay(350);
       }
     }
     
@@ -142,6 +146,7 @@ void loop() {
       }
       Serial.print("};");
       Serial.println();
+      delay(350);
     }
 
     else if (pressed && x > 180 && x < 240 && y > 0 && y < 20){    // ROM monocromo
@@ -153,11 +158,44 @@ void loop() {
         for (int col = 0; col < SIZE_TESELA; col++) {
           uint16_t temp_val = bitmapMatrix[row][col];
           switch (temp_val) {
-            case 0x867D:
-              Serial.print('1');
+            case 0x867D:    // Azul 11
+              Serial.print("1");
               break;
-            default:
-              Serial.print('0');
+            case 0xFDA0:    // Naranja 10
+              Serial.print("1");
+              break;
+            case 0x07E0:    // Verde 01
+              Serial.print("0");
+              break;
+            default:    // Negro 00
+              Serial.print("0");
+              break;
+          }
+        }
+        if (row != SIZE_TESELA - 1) {
+          Serial.print("\",\n");
+        } else {
+          Serial.print("\"");
+        }
+      }
+      Serial.print(",\n");
+      //TEMP
+      for (int row = 0; row < SIZE_TESELA; row++) {
+        Serial.print('"');
+        for (int col = 0; col < SIZE_TESELA; col++) {
+          uint16_t temp_val = bitmapMatrix[row][col];
+          switch (temp_val) {
+            case 0x867D:    // Azul 11
+              Serial.print("1");
+              break;
+            case 0xFDA0:    // Naranja 10
+              Serial.print("0");
+              break;
+            case 0x07E0:    // Verde 01 
+              Serial.print("1");
+              break;
+            default:    // Negro 00
+              Serial.print("0");
               break;
           }
         }
@@ -169,6 +207,7 @@ void loop() {
       }
       Serial.print(");\n\n\nbegin\n\n addr_int <= TO_INTEGER(unsigned(addr));\n\n P_ROM: process (clk)\n  begin\n   if clk'event and clk='1' then\n     dout <= filaimg(addr_int);\n    end if;\n end process;\n\nend BEHAVIORAL;");
       Serial.println();
+      delay(350);
     }
 
 
@@ -177,5 +216,5 @@ void loop() {
     }
   }
 
-  delay(250);   // Para evitar demasiada velocidad en la escritura
+  delay(5);   // Para evitar demasiada velocidad en la escritura
 }
