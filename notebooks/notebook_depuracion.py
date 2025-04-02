@@ -35,7 +35,7 @@ print(f"Valor leido: {val:#010x}")
 # In[2]:
 
 
-#slave0.write(0, 0x0)  # Escribir un '0' en el bit 0 del registro base
+#slave0.write(0, 0x0)
 slave0.write(0, 0b00000000000000000000000000000011)
 
 val = slave0.read(0)  # Leer el contenido del registro
@@ -45,7 +45,7 @@ print(f"Valor leido: {val:#010x}")
 # In[3]:
 
 
-#slave0.write(0, 0x1)  # Escribir un '1' en el bit 0 del registro base
+#slave0.write(0, 0x1)
 slave0.write(0, 0b00000000000000000000000000000010)
 
 val = slave0.read(0)  # Leer el contenido del registro
