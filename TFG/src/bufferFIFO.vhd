@@ -26,10 +26,10 @@ entity bufferFIFO is
         -- Parametros adicionales
         fullFIFO : out std_logic;
         emptyFIFO : out std_logic;
-        cfullFIFO : out std_logic;      -- Señal previa al llenado completo
-        cemptyFIFO : out std_logic;     -- Señal previa al vaciado completo
+        cfullFIFO : out std_logic;      -- SeÃ±al previa al llenado completo
+        cemptyFIFO : out std_logic;     -- SeÃ±al previa al vaciado completo
         
-        cuentaFIFO : out std_logic_vector (palabraFIFO - 1 downto 0)    -- Recuento de elementos en el buffer
+        cuentaFIFO : out std_logic_vector (profundidadFIFO - 1 downto 0)    -- Recuento de elementos en el buffer
         );
 end bufferFIFO;
 
