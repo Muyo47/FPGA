@@ -4,9 +4,7 @@
 La carpeta src contiene los archivos .vhd del proyecto, y el wrapper del block design
 
 ## espTOOL
-**espTOOL** es un generador de teselas 16x16 monocromaticas en formato ROM desde un esp32s3
-
-*Contiene la toolchain del proyecto*
+**espTOOL** es la comunicación UART para la configuración de huellas
 
 ## notebooks
-La carpeta notebooks contiene todos los .ipynb
+La carpeta notebooks contiene todos los .py del PS
